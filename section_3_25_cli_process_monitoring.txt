@@ -1,0 +1,31 @@
+## What's going on in containers
+
+
+- Process list in a container
+
+docker container top
+
+- Details of oien container config
+
+docker container inspect
+
+- Performance stats for all containers 
+
+docker container stats
+
+
+## Getting a shell inside containers
+
+- Start new container interactively
+
+docker container run -it
+
+- Run additional command in existing container
+
+docker container exec -it
+
+
+
+- Execute console inside container 
+
+docker container run -it nginx bash

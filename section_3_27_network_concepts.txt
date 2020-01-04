@@ -1,0 +1,62 @@
+## Docker network
+<->
+- Quick port check
+
+docker container port <container>
+
+
+- Export port host:container
+
+docker container run -p XX:YY
+
+
+- Show networks
+
+docker network ls
+
+
+- Inspect a network
+
+docker network inspect
+
+
+- Create a network
+
+docker network create --driver
+
+docker network create my_app_net => creates a network with bridge interface as default
+
+
+- Attach a network to a container
+
+docker network connect
+
+- Detach a network from container
+
+docker network disconnect
+
+
+-> Create a network
+
+docker newtork create my_app_net
+
+    -> Check the network
+
+    docker network ls
+
+
+-> Run a container with a network attached
+
+docker container run -d --name new_nginx --network my_app_net nginx
+
+-> Inspect the network with the new container attached
+
+docker network inspect my_app_net
+
+
+
+- Container shouldn't rely on IP's for inter-communication
+
+- DNS for friendly names is built-in if you use custom networks
+
+  

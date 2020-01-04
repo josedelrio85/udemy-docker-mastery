@@ -1,0 +1,32 @@
+- Run an nginx, a mysql and httpd (apache) server
+- Run all of them  --detach(-d) name them with --name
+- nginx should listen on 80:80, httpd on 8080:80 and mysql on 3306:3306
+- when running mysql, use the --env option to pass in MYSQL_RANDOM_ROOT_PASSWORD=yes
+- use docker container logs on mysql to find the random password it created on startup
+
+
+nginx:
+
+docker container run -d -p 90:80 --name mynginx nginx
+
+-> http://localhost:90
+
+docker container logs <container_id>
+
+docker container stop <container_id>
+
+docker container rm <container_id>
+
+
+mysql:
+
+docker container run -d -p 3336:3306 --env MYSQL_RANDOM_ROOT_PASSWORD=yes --name my_mysql mysql
+
+
+httpd:
+
+docker container run -d -p 8082:80 --name my_httpd httpd
+
+-> http://localhost:8082
+
+-d => run in background
